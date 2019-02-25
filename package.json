@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kkkasio/Robo-youtube-upload-videos/issues"
   },
-  "homepage": "https://github.com/kkkasio/Robo-youtube-upload-videos#readme"
+  "homepage": "https://github.com/kkkasio/Robo-youtube-upload-videos#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
 }
