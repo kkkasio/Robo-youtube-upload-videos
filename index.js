@@ -1,23 +1,37 @@
-const readline = require('readline-sync')
+const prompts = require('prompts');
 
-function start(){
-	const content = {}
-	
-		content.searchTerm = askAndReturnSearchTerm()
-		content.prefix     = askAndReturnPrefix()
-		
-		function askAndReturnSearchTerm(){
-			return readline.question('Digite o termo para buscar no Wikipedia: ')
-		}			
-		
-		function askAndReturnPrefix(){
-			const prefixes = ['Quem e','Oque e','A historia de']
-			const selectedPrefixIndex = readline.keyInSelect(prefixes, 'Escolha uma opcao: ')
-			const selectedPrefixText  = prefixes[selectedPrefixIndex]
-			
-			return selectedPrefixText
-		}
-			console.log(content)
-	}
+function askAndReturnAnswers() {
+  const questions = [
+    {
+        type: 'text',
+        name: 'searchTerm',
+        message: 'Type a Wikipedia search term:',
+        validate: value => typeof value === 'string' ? value.trim() !== '' : false,
+    },
+    {
+        type: 'select',
+        name: 'prefix',
+        message: 'Choose one option:',
+        choices: ['Who is', 'What is', 'The history of'],
+        validate: value => typeof value === 'string' ? value.trim() !== '' : false,
+    }
+  ]
+
+  return new Promise(async (resolve, reject) => {
+    const promptOptions = { 
+      onCancel: () => reject(new Error('The user has stopped answer'))
+    }
+    const response = await prompts(questions, promptOptions)
+    resolve(response)
+  })
+}
+
+async function start() {
+  const content = await askAndReturnAnswers()
+
+  await robots.text(content)
+
+  console.log(content)
+}
 
 start()

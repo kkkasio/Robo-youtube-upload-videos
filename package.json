@@ -11,12 +11,13 @@
     "url": "git+https://github.com/kkkasio/Robo-youtube-upload-videos.git"
   },
   "author": "Káio Eduardo",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kkkasio/Robo-youtube-upload-videos/issues"
   },
   "homepage": "https://github.com/kkkasio/Robo-youtube-upload-videos#readme",
   "dependencies": {
+    "prompts": "^2.0.3",
     "readline-sync": "^1.4.9"
   }
 }
