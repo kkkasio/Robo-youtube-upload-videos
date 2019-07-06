@@ -18,6 +18,8 @@
   "homepage": "https://github.com/kkkasio/Robo-youtube-upload-videos#readme",
   "dependencies": {
     "algorithmia": "^0.3.10",
+    "googleapis": "^40.0.1",
+    "image-downloader": "^3.4.2",
     "prompts": "^2.0.3",
     "readline-sync": "^1.4.9",
     "sbd": "^1.0.14",
